@@ -57,37 +57,37 @@ namespace HashTableDemo
             }
             return linkedlist;
         }
-        public void GetFrequency(V Values)
-        {
-            //initially we are defining our frequency as zero
-            int frequency = 0;
+        //public void GetFrequency(V Values)
+        //{
+        //    //initially we are defining our frequency as zero
+        //    int frequency = 0;
 
-            //using foreach loop to get  the value in linkedlist
-            foreach (LinkedList<KeyValue<K, V>> list in items)
-            {
-                if (list == null)
-                    continue;
-                foreach (KeyValue<K, V> check in list)
-                {
-                    if (check.Equals(null))
-                    {
-                        continue;
-                    }
-                    if (check.Value.Equals(Values))
-                    {
-                        frequency++;
-                    }
+        //    //using foreach loop to get  the value in linkedlist
+        //    foreach (LinkedList<KeyValue<K, V>> list in items)
+        //    {
+        //        if (list == null)
+        //            continue;
+        //        foreach (KeyValue<K, V> check in list)
+        //        {
+        //            if (check.Equals(null))
+        //            {
+        //                continue;
+        //            }
+        //            if (check.Value.Equals(Values))
+        //            {
+        //                frequency++;
+        //            }
 
-                }
-            }
-            Console.WriteLine("Frequency of \"{0}\" is : {1}", Values, frequency);
-        }
+        //        }
+        //    }
+        //    Console.WriteLine("Frequency of \"{0}\" is : {1}", Values, frequency);
+        //}
         public void Remove(K key)
         {
             int pos = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(pos);
             bool isFound = false;
-            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            KeyValue<K, V> foundItem = default;//(KeyValue<K, V>);
             foreach (KeyValue<K, V> item in linkedlist)
             {
                 if (item.Key.Equals(key))
@@ -95,7 +95,7 @@ namespace HashTableDemo
                     isFound = true;
                     foundItem = item;
                 }
-                if (isFound == true)
+                if (isFound)// == true)
                 {
                     linkedlist.Remove(foundItem);
                 }

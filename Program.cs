@@ -30,18 +30,9 @@
             Console.WriteLine(hash.Get("5").GetHashCode());
             Console.WriteLine(hash.Get("0").GetHashCode());
             Console.WriteLine($"size is: {hash.GetSize()}");
+            hash.Remove("14");
+            Console.WriteLine($"size is: {hash.GetSize()}");
 
-            string output = hash.Get("5");
-            int count = 0;
-            for (int i = 0; i < hash.GetSize(); i++)
-            {
-                string temp = hash.Get($"{i}");
-                if (output == temp)
-                {
-                    count++;
-                }
-            }
-            Console.WriteLine($"frequency of {output} is : {count}");
         }
     }
  }
