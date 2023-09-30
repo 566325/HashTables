@@ -82,6 +82,37 @@ namespace HashTableDemo
             }
             Console.WriteLine("Frequency of \"{0}\" is : {1}", Values, frequency);
         }
+        public void Remove(K key)
+        {
+            int pos = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(pos);
+            bool isFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedlist)
+            {
+                if (item.Key.Equals(key))
+                {
+                    isFound = true;
+                    foundItem = item;
+                }
+                if (isFound == true)
+                {
+                    linkedlist.Remove(foundItem);
+                }
+            }
+        }
+        public bool isEmpty()
+        {
+            if (GetSize() <= 0)
+                return true;
+            else
+                return false;
+        }
+        public int GetSize()
+        {
+            return size;
+        }
+
     }
 }
         
